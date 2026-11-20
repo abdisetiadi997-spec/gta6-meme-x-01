@@ -35,6 +35,8 @@ try {
 
 // Keep a copy of the meme itself next to the post address, so the
 // output folder shows exactly what the judged post's first picture was.
+// Only copy it when it is the same 1024x1024 meme we posted, so a
+// stray file with the same name cannot silently change the entry.
 const meme = join(BOT_DIR, 'meme.png');
 if (existsSync(meme)) {
   copyFileSync(meme, join(OUTPUT_DIR, 'meme.png'));
